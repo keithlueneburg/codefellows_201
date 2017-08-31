@@ -1,0 +1,19 @@
+============================================
+To-do list
+============================================
+*** Read suggested chapters of 201 prework books
+  - Books arrive Thursday
+  * Read the rest too ASAP
+
+*** Scope 201 final project
+  - Initial thought: doable in a week? (Thursday-Wed (9/6))
+
+============================================
+Project Ideas
+============================================
+Cat breed guide:
+  - user selects options for a number of cat attributes
+  - depending on what options were selected, a list of good breed choices
+    will be shown
+  - This is similar to one of the examples, so it seems like it should
+    meet the requirements
