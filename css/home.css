@@ -1,0 +1,21 @@
+body {
+  background-color: LightGreen;
+  background-image: url("../img/bg_home.jpg");
+  background-position: right top;
+}
+
+.start_button {
+  text-align: center;
+  height: auto;
+  max-width: 400px;
+  margin: 550px auto;
+  background-color: Orange;
+  padding: 10px 15px;
+  font-size: 250%;
+  text-transform: uppercase;
+}
+
+.start_button a {
+  color: #000;
+  text-decoration: none;
+}

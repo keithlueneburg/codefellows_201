@@ -17,3 +17,22 @@ Cat breed guide:
     will be shown
   - This is similar to one of the examples, so it seems like it should
     meet the requirements
+
+
+Pages:
+  main
+    - main pic, nav bar, author info at bottom
+  about
+    - nav bar
+    - pic and short bio of me
+  breed guide (select options)
+  breed guide (show results)
+    - nav bar
+    - I think these need to be the same page, so JS can retain user input
+      - would need server side web app to get a new page based on user input
+    - check box set for color/pattern
+    - check box set for behavioral characteristics
+    - list of breeds (at least 15 seems reasonable)
+      - pic
+      - short description
+      - list of characteristics
