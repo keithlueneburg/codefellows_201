@@ -1,3 +1,25 @@
+body {
+  background-color: #000;
+}
+
+h2 {
+  color: #FFF;
+}
+
 .bio {
     text-align: center;
+}
+
+.bio_name {
+  border-radius: 2px;
+  font-family: Courier monospace;
+  font-size: 200%;
+  background-color: Orange;
+}
+
+.bio_text {
+  width: 500px;
+  margin: 15px auto;
+  background-color: #000;
+  color: Green;
 }
