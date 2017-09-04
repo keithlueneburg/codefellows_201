@@ -9,15 +9,16 @@ Contains title and menu bar
 ******************/
 header {
   position: fixed;
-  top: -22px;
+  top: -2.7em;
   left: 0px;
   right: 0px;
-  font-family: sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 
 header h1 {
   background-color: rgba(12, 200, 12, 0.75);
+  font-size: 4em;
   text-align: center;
   padding: 15px 0px;
   margin-bottom: 0px;
@@ -63,7 +64,7 @@ Generic style for content
 ******************/
 .header_spacer {
   width: 100%;
-  height: 100px; /* Shift content to start below fixed header */
+  height: 145px; /* Shift content to start below fixed header */
 }
 
 .footer_spacer {
@@ -71,6 +72,7 @@ Generic style for content
   height: 75px; /* Allow small screens to scroll to bottom of content,
                    despite the fixed footer */
 }
+
 /******************
 Footer
 
