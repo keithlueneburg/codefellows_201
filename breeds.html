@@ -18,7 +18,7 @@
         <a href="index.html">Home</a>
       </li>
       <li class="current">
-        <a href="breeds.html">Cat Breed Guide</a>
+        <a href="breeds.html">Cat Breeds</a>
       </li>
       <li>
         <a href="about.html">About</a>
@@ -26,24 +26,52 @@
     </nav>
   </header>
 
-  <!-- Spacer to offset content below the header></-->
+  <!-- Spacer to offset content below the header -->
   <div class="header_spacer">
     <p></p>
   </div>
 
   <h2>Cat Breed Guide</h2>
-  <div class="bio">
-    <div class="bio_image">
-      <img width=400 height=400 title="Picture of Keith" src="img/bio_keith.jpg">
+  <div id="instructions">
+    <p>Select the attributes you are looking for in a furry friend,
+       and we'll suggest breeds that might appeal to you!</p>
     </div>
-    <div class="biocaption">
-      <p>Keith Lueneburg</p>
+  <form action="/none" id="attributes_form">
+    <p>Select your preferred hair length:</p>
+    <input type="radio" name="hair_length" value="short" checked="checked" />
+      Short
+    <input type="radio" name="hair_length" value="medium" checked="checked" />
+      Medium
+    <input type="radio" name="hair_length" value="long" checked="checked" />
+      Long
+
+    <p>Select the characteristics you would like in a cat:</p>
+    <input type="checkbox" name="traits" value="hypoallergenic"/>
+      Hypoallergenic
+    <input type="checkbox" name="traits" value="intelligent"/>
+      Intelligent
+    <input type="checkbox" name="traits" value="playful"/>
+      Playful
+    <input type="checkbox" name="traits" value="lazy"/>
+      Lazy
+    <input type="checkbox" name="traits" value="short_tail"/>
+      Short Tail
+    <input type="checkbox" name="traits" value="talkative"/>
+      Talkative
+    <input type="checkbox" name="traits" value="independent"/>
+      Independent
+    <input type="checkbox" name="traits" value="large"/>
+      Large
+    <br><br>
+    <input type="submit" value="Find Breeds" \>
+    <br><br>
+    <input type="submit" value="See All Breeds" \>
+  </form>
+
+  <div id="breed_list">
+    <div class="breed">
     </div>
-    <div class="bio_text">
-      <p>I'm a software engineer, originally from Everett, WA. I spent 7 years as
-         a Chinook helicopter mechanic in the Army, before getting my B.S. in
-         Computer Engineer/Computer Science from UW Tacoma. My interests include
-         animals, motor racing, and learning!</p>
+    <div class="breed">
     </div>
   </div>
 
@@ -53,6 +81,7 @@
 
   <footer>
     <p>Site design copyright 2017 Keith Lueneburg</p>
+    <p>Breed information from the <a href="http://cfa.org/Breeds.aspx" target="_blank">Cat Fancier's Association</a></p>
   </footer>
 </body>
 </html>
