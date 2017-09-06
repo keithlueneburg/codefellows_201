@@ -64,13 +64,57 @@
       Large
     <br><br>
     <input type="submit" value="Find Breeds" \>
-    <br><br>
-    <input type="submit" value="See All Breeds" \>
   </form>
 
   <div id="breed_list">
-    <div class="breed">
+
+    <!--- List of cat breeds.
+          'breed' class attributes:
+            hair: should be a space-delimited string of hair type
+            (must contain at least one hair type)
+            traits: should be a space-delimited string of traits this
+            breed has (can be empty) -->
+    <div class="breed" hidden="true" hair="short medium" traits="quiet short_tail">
+      <h3>American Bobtail</h3>
+      <img src="img/american_bobtail.jpg">
     </div>
+    <div class="breed" hidden="true" hair="long" traits="intelligent">
+      <h3>Balinese</h3>
+      <img src="img/balinese.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="short" traits="easygoing clumsy">
+      <h3>British Shorthair</h3>
+      <img src="img/british_shorthair.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="medium" traits="quiet intelligent">
+      <h3>Chartreux</h3>
+      <img src="img/chartreux.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="short" traits="affectionate active">
+      <h3>Cornish Rex</h3>
+      <img src="img/cornish_rex.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="short long" traits="affectionate active">
+      <h3>Japanese Bobtail</h3>
+      <img src="img/japanese_bobtail.jpg">
+    </div>
+    <div class="breed" hidden="true" traits="playful large intelligent">
+      <h3>Maine Coon</h3>
+      <img src="img/maine_coon.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="long" traits="playful affectionate">
+      <h3>Persian</h3>
+      <img src="img/persian.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="" traits="talkative">
+      <h3>Siamese</h3>
+      <img src="img/siamese.jpg">
+    </div>
+    <div class="breed" hidden="true" hair="short" traits="hypoallergenic affectionate">
+      <h3>Sphynx</h3>
+      <img src="img/sphynx.jpg">
+    </div>
+
     <div class="breed">
     </div>
   </div>
@@ -81,7 +125,10 @@
 
   <footer>
     <p>Site design copyright 2017 Keith Lueneburg</p>
-    <p>Breed information from the <a href="http://cfa.org/Breeds.aspx" target="_blank">Cat Fancier's Association</a></p>
+    <p>Images and breed information from the <a href="http://cfa.org/Breeds.aspx" target="_blank">Cat Fancier's Association</a></p>
   </footer>
+
+  <!-- Script for responding to form submit -->
+  <script src="js/breed_find.js"></script>
 </body>
 </html>

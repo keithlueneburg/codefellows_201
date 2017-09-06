@@ -1,0 +1,14 @@
+/* Steylesheet for breed guide page */
+
+.breed {
+  text-align: center;
+  display: inline-block;
+  width: 450px;
+  height: 550px;
+  margin: 10px;
+}
+
+.breed img {
+  max-width: 400px;
+  max-height: 400px;
+}
