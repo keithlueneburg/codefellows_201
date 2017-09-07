@@ -3,6 +3,14 @@
 var setBreedVisibility = function(el, visible) {
   el.hidden = visible;
   el.style.display = visible ? "inline-block" : "none";
+
+  if(visible) {
+    // Ensure the breed list border is visible if a breed is shown
+    var border_el = document.getElementById('breed_list');
+    if(border_el.style.display == "") {
+      border_el.style.display = "inline-block";
+    }
+  }
 }
 
 // Shows the list of breeds desired, based on the form input
@@ -53,6 +61,10 @@ var showFilteredBreeds = function(e) {
 var resetFilter = function(e) {
   // Prevent default form action
   e.preventDefault();
+
+  // Ensure the breed list border is hidden
+  var border_el = document.getElementById('breed_list');
+  border_el.style.display = "";
 
   for(b of breeds) {
     setBreedVisibility(b, false);
