@@ -1,13 +1,9 @@
 ============================================
 To-do list
 ============================================
-*** Read suggested chapters of 201 prework books
-  - Books arrive Thursday
-  * Read the rest too ASAP
-
-*** Scope 201 final project
-  - Initial thought: doable in a week? (Thursday-Wed (9/6))
-
+*** Add local storage for current search...
+  - Should I store list of breeds?
+  - Or
 ============================================
 Project Ideas
 ============================================

@@ -1,8 +1,16 @@
 /* Steylesheet for breed guide page */
 
+form[type="checkbox"] {
+  display: list-item;
+}
+
+form li{
+  list-style: none;
+}
+
 .breed {
   text-align: center;
-  display: inline-block;
+  /*display: inline-block;*/
   width: 450px;
   height: 550px;
   margin: 10px;
