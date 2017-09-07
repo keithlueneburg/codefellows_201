@@ -4,6 +4,7 @@
 <head>
   <title>Breed Guide</title>
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main.css" />
   <link rel="stylesheet" type="text/css" href="css/breeds.css" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -32,80 +33,84 @@
     <p></p>
   </div>
 
-  <h2>Cat Breed Guide</h2>
-  <div id="instructions">
-    <p>Select the attributes you are looking for in a furry friend,
-       and we'll suggest breeds that might appeal to you!</p>
+  <div id="instruction_form_container">
+    <div id="container_border">
+      <h2>Cat Breed Guide</h2>
+      <div id="instructions">
+        <p>Select the attributes you are looking for in a furry friend,
+           and we'll suggest breeds that might appeal to you!</p>
+        </div>
+      <form id="attributes_form">
+        <p>Select your preferred hair length:</p>
+        <input type="radio" name="hair_length" value="short" checked="checked" />
+          Short
+        <input type="radio" name="hair_length" value="medium" />
+          Medium
+        <input type="radio" name="hair_length" value="long" />
+          Long
+
+        <p>Select the characteristics you would like in a cat:</p>
+        <ul>
+          <li>
+            <input type="checkbox" name="traits" value="hypoallergenic"/>
+            Hypoallergenic
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="intelligent"/>
+            Intelligent
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="playful"/>
+            Playful
+          <li>
+            <input type="checkbox" name="traits" value="lazy"/>
+            Lazy
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="short_tail"/>
+            Short Tail
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="talkative"/>
+            Talkative
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="independent"/>
+            Independent
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="large"/>
+            Large
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="quiet"/>
+            Quiet
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="easygoing"/>
+            Easygoing
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="clumsy"/>
+            Clumsy
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="affectionate"/>
+            Affectionate
+          </li>
+          <li>
+            <input type="checkbox" name="traits" value="active"/>
+            Active
+          </li>
+        </ul>
+        <input type="submit" value="Find Breeds" \>
+      </form>
+
+      <form id="reset_form">
+        <input type="submit" value="Reset search" \>
+      </form>
     </div>
-  <form id="attributes_form">
-    <p>Select your preferred hair length:</p>
-    <input type="radio" name="hair_length" value="short" checked="checked" />
-      Short
-    <input type="radio" name="hair_length" value="medium" />
-      Medium
-    <input type="radio" name="hair_length" value="long" />
-      Long
-
-    <p>Select the characteristics you would like in a cat:</p>
-    <ul>
-      <li>
-        <input type="checkbox" name="traits" value="hypoallergenic"/>
-        Hypoallergenic
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="intelligent"/>
-        Intelligent
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="playful"/>
-        Playful
-      <li>
-        <input type="checkbox" name="traits" value="lazy"/>
-        Lazy
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="short_tail"/>
-        Short Tail
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="talkative"/>
-        Talkative
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="independent"/>
-        Independent
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="large"/>
-        Large
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="quiet"/>
-        Quiet
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="easygoing"/>
-        Easygoing
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="clumsy"/>
-        Clumsy
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="affectionate"/>
-        Affectionate
-      </li>
-      <li>
-        <input type="checkbox" name="traits" value="active"/>
-        Active
-      </li>
-    </ul>
-    <input type="submit" value="Find Breeds" \>
-  </form>
-
-  <form id="reset_form">
-    <input type="submit" value="Reset search" \>
-  </form>
+  </div>
 
   <div id="breed_list">
     <!--- List of cat breeds.
