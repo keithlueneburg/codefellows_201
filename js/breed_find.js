@@ -1,5 +1,3 @@
-/*jslint browser:true */
-
 /****************************
 Functions
 ****************************/
@@ -20,12 +18,14 @@ function setBreedVisibility(el, visible) {
     }
 }
 
+// Wrapper for showFilteredBreeds, for use as an event handler
 function searchHandler(e) {
     "use strict";
     // Prevent default form action
     e.preventDefault();
     showFilteredBreeds();
 }
+
 // Shows the list of breeds desired, based on the form input
 function showFilteredBreeds() {
     "use strict";
@@ -78,6 +78,7 @@ function showFilteredBreeds() {
     }
 }
 
+// Reset the displayed search results, page storage and form
 function resetFilter(e) {
     "use strict";
     // Prevent default form action
@@ -99,23 +100,27 @@ function resetFilter(e) {
     clearSearchForm();
 }
 
+// Clears the page storage of search data
 function clearPageStorage() {
     "use strict";
     sessionStorage.setItem("hair_type", "");
     sessionStorage.setItem("traits", "");
 }
 
+// Clears the search form
 function clearSearchForm() {
     "use strict";
     setFormHairType("short");
     setFormTraits("");
 }
 
+// Checked whether there is an existing cached search
 function searchSaved() {
     "use strict";
     return sessionStorage.getItem("hair_type") !== "" && sessionStorage.getItem("traits") !== "";
 }
 
+// Set the form's selected hair type
 function setFormHairType(hair_type) {
     "use strict";
     var hair_radio_buttons = document.querySelectorAll("input[name='hair_length']");
@@ -126,6 +131,7 @@ function setFormHairType(hair_type) {
     }
 }
 
+// Set the form's selected traits
 function setFormTraits(traits) {
     "use strict";
     var trait_checkboxes = document.querySelectorAll("input[name='traits']");
@@ -138,6 +144,7 @@ function setFormTraits(traits) {
     }
 }
 
+// Fill the form from data saved in page storage
 function copyStorageToForm() {
     "use strict";
     // Set chosen hair type
