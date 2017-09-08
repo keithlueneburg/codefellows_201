@@ -4,9 +4,12 @@ body {
   background-color: Grey;
 }
 
-#instruction_form_container {
+#instruction_form_container, #breed_container {
   width: auto;
   text-align: center;
+}
+
+#instruction_form_container {
   margin-bottom: 25px;
 }
 

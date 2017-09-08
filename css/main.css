@@ -13,9 +13,9 @@ header {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
-
 header h1 {
   background-color: rgb(12, 200, 12);
+  
   font-size: 4em;
   text-align: center;
   padding: 15px 0px;
