@@ -1,3 +1,7 @@
+/****************************
+Functions
+****************************/
+
 // Setting 'display' to inline-block in the stylesheet causes elements to not
 // actually be hidden, so we need to manage it along with toggling hidden
 var setBreedVisibility = function(el, visible) {
@@ -13,11 +17,13 @@ var setBreedVisibility = function(el, visible) {
   }
 }
 
-// Shows the list of breeds desired, based on the form input
-var showFilteredBreeds = function(e) {
+var searchHandler = function(e) {
   // Prevent default form action
   e.preventDefault();
-
+  showFilteredBreeds();
+}
+// Shows the list of breeds desired, based on the form input
+var showFilteredBreeds = function() {
   // Get chosen hair type
   var hair_radio_buttons = document.querySelectorAll('input[name="hair_length"]');
   var selected_hair_type;
@@ -26,15 +32,22 @@ var showFilteredBreeds = function(e) {
       selected_hair_type = button['value']
     }
   }
+  // Save hair type to page storage
+  sessionStorage.setItem('hair_type', selected_hair_type);
 
   // Get list of selected traits
   var trait_checkboxes = document.querySelectorAll('input[name="traits"]');
   var selected_traits = [];
+  var storageTraits = '';
   for(box of trait_checkboxes) {
     if(box['checked']) {
       selected_traits.push(box.value);
+      storageTraits += box.value + ' ';
     }
   }
+  // Remove trailing space
+  storageTraits.trim();
+  sessionStorage.setItem('traits', storageTraits);
 
   // Unhide the breeds that match the hair type, and
   // have at least one of the desired traits
@@ -54,7 +67,6 @@ var showFilteredBreeds = function(e) {
     // Explicitly hide breeds that shouldn't be shown, so
     // subsequent searches don't accumulate incorrect results
     setBreedVisibility(b, show_breed);
-    // TODO add to localstorage
   }
 }
 
@@ -66,28 +78,79 @@ var resetFilter = function(e) {
   var border_el = document.getElementById('breed_list');
   border_el.style.display = "";
 
+  // Clear breed visibility
   for(b of breeds) {
     setBreedVisibility(b, false);
-    // TODO clear local storage of filter
+  }
+
+  // Clear saved search data
+  clearPageStorage();
+
+  // Reset form to empty
+  clearSearchForm();
+}
+
+var clearPageStorage = function() {
+  sessionStorage.setItem('hair_type', '');
+  sessionStorage.setItem('traits', '');
+}
+
+var clearSearchForm = function() {
+  setFormHairType('short');
+  setFormTraits('');
+}
+
+var searchSaved = function() {
+  return localStorage['hair_type'] != '' && localStorage['traits'] != '';
+}
+
+var setFormHairType = function(hair_type) {
+  var hair_radio_buttons = document.querySelectorAll('input[name="hair_length"]');
+  for(button of hair_radio_buttons){
+    if(hair_type == button['value']) {
+      button['checked'] = true;
+    }
   }
 }
+
+var setFormTraits = function(traits) {
+  var trait_checkboxes = document.querySelectorAll('input[name="traits"]');
+  for(box of trait_checkboxes) {
+    if(traits.indexOf(box.value) != -1) {
+      box['checked'] = true;
+    } else {
+      box['checked'] = false;
+    }
+  }
+}
+
+var copyStorageToForm = function() {
+  // Set chosen hair type
+  setFormHairType(sessionStorage['hair_type']);
+
+  // Set selected traits
+  setFormTraits(sessionStorage['traits']);
+}
+
+/****************************
+Script - Page initialization
+****************************/
+
 // Get list of all available breeds
 var breeds = document.getElementsByClassName('breed');
 
 // Register filter event handler
-document.getElementById('attributes_form').addEventListener("submit", showFilteredBreeds);
+document.getElementById('attributes_form').addEventListener("submit", searchHandler);
 
 // Register reset search event handler
 document.getElementById('reset_form').addEventListener("submit", resetFilter);
 
-// TODO Need to check localStorage, and if a search is saved,
-// we should display the search
-
-
-// TODO remove
-// for (b of breeds) {
-//   if(true || b.hasAttribute('traits')
-//   && b.getAttribute('traits').indexOf('large') != -1){
-//     setBreedVisibility(b, true);
-//   }
-// }
+// Check localStorage, and if a previous search exists,
+// the form should match
+if(searchSaved()) {
+  copyStorageToForm();
+  showFilteredBreeds();
+} else {
+  // Clear local storage items if both are not populated
+  clearPageStorage();
+}
