@@ -32,10 +32,10 @@ function showFilteredBreeds() {
     // Get chosen hair type
     var hair_radio_buttons = document.querySelectorAll("input[name='hair_length']");
     var selected_hair_type;
-    var button;
-    for (button of hair_radio_buttons) {
-        if (button.checked) {
-            selected_hair_type = button.value;
+
+    for (var i = 0; i < hair_radio_buttons.length; i++) {
+        if (hair_radio_buttons[i].checked) {
+            selected_hair_type = hair_radio_buttons[i].value;
         }
     }
     // Save hair type to page storage
@@ -45,11 +45,11 @@ function showFilteredBreeds() {
     var trait_checkboxes = document.querySelectorAll("input[name='traits']");
     var selected_traits = [];
     var storageTraits = "";
-    var box;
-    for (box of trait_checkboxes) {
-        if (box.checked) {
-            selected_traits.push(box.value);
-            storageTraits += box.value + " ";
+
+    for (i = 0; i < trait_checkboxes.length; i++) {
+        if (trait_checkboxes[i].checked) {
+            selected_traits.push(trait_checkboxes[i].value);
+            storageTraits += trait_checkboxes[i].value + " ";
         }
     }
     // Remove trailing space
@@ -58,16 +58,14 @@ function showFilteredBreeds() {
 
     // Unhide the breeds that match the hair type, and
     // have at least one of the desired traits
-    var b;
     var show_breed;
-    var trait;
-    for (b of breeds) {
+    for (i = 0; i < breeds.length; i++) {
         show_breed = false;
         // Check for hair type match
-        if (b.getAttribute("hair").indexOf(selected_hair_type) !== -1) {
-            for (trait of selected_traits) {
+        if (breeds[i].getAttribute("hair").indexOf(selected_hair_type) !== -1) {
+            for (var j = 0; j < selected_traits.length; j++) {
                 // Check for a matching trait
-                if (b.getAttribute("traits").indexOf(trait) !== -1) {
+                if (breeds[i].getAttribute("traits").indexOf(selected_traits[j]) !== -1) {
                     show_breed = true;
                     break;
                 }
@@ -76,7 +74,7 @@ function showFilteredBreeds() {
 
         // Explicitly hide breeds that shouldn't be shown, so
         // subsequent searches don't accumulate incorrect results
-        setBreedVisibility(b, show_breed);
+        setBreedVisibility(breeds[i], show_breed);
     }
 }
 
@@ -90,9 +88,8 @@ function resetFilter(e) {
     border_el.style.display = "";
 
     // Clear breed visibility
-    var b;
-    for (b of breeds) {
-        setBreedVisibility(b, false);
+    for (var i = 0; i < breeds.length; i++) {
+        setBreedVisibility(breeds[i], false);
     }
 
     // Clear saved search data
@@ -122,10 +119,9 @@ function searchSaved() {
 function setFormHairType(hair_type) {
     "use strict";
     var hair_radio_buttons = document.querySelectorAll("input[name='hair_length']");
-    var button;
-    for (button of hair_radio_buttons) {
-        if (hair_type === button.value) {
-            button.checked = true;
+    for (var i = 0; i < hair_radio_buttons.length; i++) {
+        if (hair_type === hair_radio_buttons[i].value) {
+            hair_radio_buttons[i].checked = true;
         }
     }
 }
@@ -133,12 +129,11 @@ function setFormHairType(hair_type) {
 function setFormTraits(traits) {
     "use strict";
     var trait_checkboxes = document.querySelectorAll("input[name='traits']");
-    var box;
-    for (box of trait_checkboxes) {
-        if (traits.indexOf(box.value) !== -1) {
-            box.checked = true;
+    for (var i = 0; i < trait_checkboxes.length; i++) {
+        if (traits.indexOf(trait_checkboxes[i].value) !== -1) {
+            trait_checkboxes[i].checked = true;
         } else {
-            box.checked = false;
+            trait_checkboxes[i].checked = false;
         }
     }
 }
