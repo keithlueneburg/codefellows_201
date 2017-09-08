@@ -8,14 +8,6 @@ function setBreedVisibility(el, visible) {
     "use strict";
     el.hidden = visible;
     el.style.display = visible ? "inline-block" : "none";
-
-    if (visible) {
-        // Ensure the breed list border is visible if a breed is shown
-        var border_el = document.getElementById("breed_list");
-        if (border_el.style.display === "") {
-            border_el.style.display = "inline-block";
-        }
-    }
 }
 
 // Wrapper for showFilteredBreeds, for use as an event handler
@@ -32,6 +24,7 @@ function showFilteredBreeds() {
     // Get chosen hair type
     var hair_radio_buttons = document.querySelectorAll("input[name='hair_length']");
     var selected_hair_type;
+    var results_empty = true;
 
     for (var i = 0; i < hair_radio_buttons.length; i++) {
         if (hair_radio_buttons[i].checked) {
@@ -67,6 +60,7 @@ function showFilteredBreeds() {
                 // Check for a matching trait
                 if (breeds[i].getAttribute("traits").indexOf(selected_traits[j]) !== -1) {
                     show_breed = true;
+                    results_empty = false;
                     break;
                 }
             }
@@ -75,6 +69,14 @@ function showFilteredBreeds() {
         // Explicitly hide breeds that shouldn't be shown, so
         // subsequent searches don't accumulate incorrect results
         setBreedVisibility(breeds[i], show_breed);
+    }
+
+    // Ensure the breed list border is visible if a breed is shown
+    var border_el = document.getElementById("breed_list");
+    if (results_empty === false) {
+        border_el.style.display = "inline-block";
+    } else {
+        border_el.style.display = "";
     }
 }
 
